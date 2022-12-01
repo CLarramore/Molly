@@ -1,0 +1,20 @@
+{
+	"name": "mollermethod",
+	"description": "Scripting, unleashed.",
+	"version": "8.0.0",
+	"private": true,
+	"packageManager": "pnpm@7.0.1",
+	"devDependencies": {
+		"@prettier/plugin-lua": "github:prettier/plugin-lua",
+		"prettier-plugin-svelte": "^2.6.0",
+		"prettier": "^2.4.1",
+		"svelte": "^3.46.4"
+	},
+	"scripts": {
+		"deploy": "bash ./deploy.sh",
+		"format": "pnpx prettier . --write --plugin-search-dir=."
+	},
+	"dependencies": {
+		"@milahu/patch-package": "^6.4.11"
+	}
+}

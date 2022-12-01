@@ -1,0 +1,45 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "watch",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"isBackground": true,
+			"problemMatcher": [],
+			"dependsOn": ["roblox-ts"],
+			"label": "rojo watch",
+			"detail": "runs rojo in watch mode compiling to your workspace",
+			"path": "./roblox/"
+		},
+		{
+			"type": "npm",
+			"label": "roblox-ts",
+			"script": "ts-watch",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"isBackground": true,
+			"problemMatcher": ["$tsc-watch"],
+			"detail": "transpiles your code to lua",
+			"path": "./roblox/"
+		},
+		{
+			"type": "npm",
+			"script": "dev",
+			"group": {
+				"kind": "build",
+				"isDefault": false
+			},
+			"isBackground": true,
+			"problemMatcher": [],
+			"label": "web server",
+			"detail": "runs the sveltekit server",
+			"path": "./website/"
+		}
+	]
+}

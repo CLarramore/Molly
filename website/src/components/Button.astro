@@ -1,0 +1,104 @@
+---
+const { pathname } = Astro.url
+const { label, href } = Astro.props;
+---
+
+<div>
+	<a class:list={{selected: pathname === href}} {href} title={label}>
+		<slot />
+		<b>{label}</b>
+	</a>
+</div>
+<style>
+	div {
+		height: 30px;
+		width: 30px;
+		overflow: visible;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1ch;
+		flex-direction: row;
+	}
+	
+	a,
+	button {
+		/* padding: 16px; */
+		padding-left: 10px;
+		padding-right: 10px;
+		padding-top: 0;
+		padding-bottom: 0;
+		font-family: "moller", "Segoe UI", sans-serif;
+		margin: 0;
+		/* cursor: default; */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: row;
+		position: relative;
+		height: 30px;
+		box-sizing: border-box;
+		background: none;
+		border: none;
+		border-radius: 10px;
+		gap: 0;
+		fill: currentColor;
+		text-decoration: none;
+		background: #303030;
+		color: #f4f4f4;
+		transition: background 0.3s, gap 0.3s, font-size 0.3s, transform 0.2s;
+	}
+	
+	a:not(:last-of-type), button:not(:last-of-type) {
+		margin-bottom: 10px;
+	}
+	a b,
+	header button b {
+		transition: font-size 0.3s;
+		font-size: 0;
+	}
+	a:hover b,
+	button:hover b,
+	a:focus-visible b,
+	button:focus-visible b {
+		font-size: small;
+	}
+
+	a:hover,
+	button:hover,
+	a:focus-visible,
+	button:focus-visible {
+		outline: 0;
+		gap: 1ch;
+		text-decoration: none;
+		background: rgba(255, 255, 255, 0.3);
+	}
+
+	a:focus,
+	button:focus {
+		border: solid 1px var(--fds-text-primary);
+	}
+	a.selected {
+		background: #454545;
+	}
+	a:active,
+	button:active {
+		transform: scale(1.2);
+	}
+
+	@media (prefers-color-scheme: light) {
+		a:hover,
+		button:hover,
+		a:focus-visible,
+		button:focus-visible {
+			background: rgba(0, 0, 0, 0.1);
+		}
+	}
+	@media (max-width: 659px) {
+		a,
+		button {
+			flex-grow: 1;
+			padding: 5px;
+		}
+	}
+</style>
